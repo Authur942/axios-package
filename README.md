@@ -17,3 +17,54 @@ axios 是一个轻量的 HTTP客户端
 - 取消请求
 - 自动转换JSON 数据
 - 客户端支持防御XSRF
+
+## 基本使用
+
+安装
+
+```shell
+// 项目中安装
+npm install axios --S
+// cdn 引入
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+```
+
+导入
+
+```js
+import axios from 'axios'
+```
+
+发送请求
+
+```js
+axios({
+  url:'xxx',    // 设置请求的地址
+  method:"GET", // 设置请求方法
+  params:{      // get请求使用params进行参数凭借,如果是post请求用data
+    type: '',
+    page: 1
+  }
+}).then(res => {
+  // res为后端返回的数据
+  console.log(res);
+})
+```
+
+并发请求`axios.all([])`
+
+```js
+function getUserAccount() {
+    return axios.get('/user/12345');
+}
+
+function getUserPermissions() {
+    return axios.get('/user/12345/permissions');
+}
+
+axios.all([getUserAccount(), getUserPermissions()])
+    .then(axios.spread(function (res1, res2) {
+    // res1第一个请求的返回的内容，res2第二个请求返回的内容
+    // 两个请求都执行完成才会执行
+}));
+```
