@@ -1,0 +1,14 @@
+{
+  "name": "axios-package",
+  "version": "1.0.0",
+  "description": "axios二次封装",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "zhanggangbin",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
+}
